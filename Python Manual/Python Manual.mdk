@@ -1,0 +1,164 @@
+Title         : My Academic Paper
+
+Author        : You
+Affiliation   : Research institute
+Email         : you@bar.com
+
+Bibliography  : example.bib
+package       : url
+
+[INCLUDE=book]
+[INCLUDE=webtoc]
+[INCLUDE=webanchors]
+
+[TITLE]
+
+~ Begin SidePanel
+[TOC]
+~ End SidePanel
+
+~ Begin MainPanel
+
+# Introduction     { #sec-intro }
+
+Python is a modern computational language giving coding much convenience. It is a necessity to master this language in some way.
+
+# Content
+## Migration from Python 2.7 to Python 3.x
+This summary is mainly from the website [@migr].
+### Handling Path
+Handling path by pathlib rather than os.path.joins.
+"pathlib" is the default module of Python 3, assisting keeping away from "os.path.joins"：
+```python
+from pathlib import Path
+dataset = 'wiki_images'
+datasets_root = Path('/path/to/datasets/') 
+
+train_path = datasets_root / dataset / 'train'
+test_path = datasets_root / dataset / 'test'
+
+for image_path in train_path.iterdir():
+    with image_path.open() as f: # note, open is a method of Path object
+         # do something with an image
+```
+
+### Type Checking
+Type checking has been integrated with Python 3. The following code is an easy template to handle various types of data.
+```python
+def repeat_each_entry(data):
+   """ Each entry in the data is doubled 
+   <blah blah nobody reads the documentation till the end>
+   """
+   index = numpy.repeat(numpy.arange(len(data)), 2)
+   return data[index]
+```
+Some types of data are allowed to run the preceding function, but some are forbidden.
+#### Enforce
+Enforce could be used to check the variable type to help debug.
+```python
+@enforce.runtime_validation
+def foo(text: str) -> None:
+print(text)
+
+foo('Hi') # ok
+foo(5) # fails
+
+
+@enforce.runtime_validation
+def any2(x: List[bool]) -> bool:
+return any(x)
+
+any ([False, False, True, False]) # True
+any2([False, False, True, False]) # True
+
+any (['False']) # True
+any2(['False']) # fails
+
+any ([False, None, "", 0]) # False
+any2([False, None, "", 0]) # fails
+```
+
+#### Helping Units
+"astropy" package is beneficial to takcle units problem.
+
+
+```python
+# Python 3
+from astropy import units as u
+@u.quantity_input()
+def frequency(speed: u.meter / u.s, wavelength: u.m) -> u.terahertz:
+return speed / wavelength
+
+frequency(speed=300_000 * u.km / u.s, wavelength=555 * u.nm)
+# output: 540.5405405405404 THz, frequency of green visible light
+```
+
+### Specific Symbol
+
+#### @ Matrix Multiplication
+It is more readable to write the matrix multiplication as @ rather than *. The code X @ W + b[None,:] means single-layer perceptron in many packages.
+```python
+# l2-regularized linear regression: || AX - b ||^2 + alpha * ||x||^2 -> min
+
+# Python 2
+X = np.linalg.inv(np.dot(A.T, A) + alpha * np.eye(A.shape[1])).dot(A.T.dot(b))
+# Python 3
+X = np.linalg.inv(A.T @ A + alpha * np.eye(A.shape[1])) @ (A.T @ b)
+```
+#### ** Wildcard Character
+It is not so convenient to express regression wildcard character in python 2, so python 3 support recursion flag in python 3.
+
+```python
+import glob
+
+# Python 2
+found_images = \
+   glob.glob('/path/*.jpg') \
++ glob.glob('/path/*/*.jpg') \
++ glob.glob('/path/*/*/*.jpg') \
++ glob.glob('/path/*/*/*/*.jpg') \
++ glob.glob('/path/*/*/*/*/*.jpg') 
+
+# Python 3
+found_images = glob.glob('/path/**/*.jpg', recursive=True)
+```
+The best choice for python 3 is to use "pathlib" package.
+```python
+# Python 3
+found_images = pathlib.Path('/path/').glob('**/*.jpg')
+```
+### Print
+
+Print is a function in python 3. 
+
+### Strict Sort
+```python
+# All these comparisons are illegal in Python 3
+3 < '3'
+2 < None
+(3, 4) < (3, None)
+(4, 5) < [4, 5]
+# False in both Python 2 and Python 3
+(4, 5) == [4, 5]
+```
+
+
+## Data Science
+Stop supporting nesting parameters.
+```python
+map(lambda x, (y, z): x, z, dict.items())
+```
+Notwithstanding, it still adapts to different comprehension:
+```python
+{x:z for x, (y, z) in d.items()}
+```
+
+map(), .keys(), .values(), .items() return iterators rather than list. Iterators have problems, transforming the result to list could nearly tackle all problems. 
+
+
+
+
+
+[BIB]
+
+~ End MainPanel
