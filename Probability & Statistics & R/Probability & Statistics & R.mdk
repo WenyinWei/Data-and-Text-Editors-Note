@@ -1,0 +1,36 @@
+Title         : My Academic Paper
+
+Author        : You
+Affiliation   : Research institute
+Email         : you@bar.com
+
+Bibliography  : example.bib
+package       : url
+[INCLUDE=book]
+[INCLUDE=webtoc]
+[INCLUDE=webanchors]
+
+[TITLE]
+
+~ Begin SidePanel
+[TOC]
+~ End SidePanel
+
+~ Begin MainPanel
+
+Some famous websites exhibiting beautiful data are as follow:
+
+- Nathan Yau's Blog "Flowing data" \url{https://flowingdata.com/} and his book _Data Points_
+- _R for Data Science_.  
+- _The Elements of Statistical Learning_.(free)
+- _An Introduction to Statistical Learning_.(free)
+- _Doing Bayesian Data Analysis_.(free)
+- _Forecasting Principles and Practics_.(free)
+# Probability
+# Statistics
+# R Language
+## Visualization
+
+
+
+~ End MainPanel
