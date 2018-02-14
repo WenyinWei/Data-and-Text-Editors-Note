@@ -62,7 +62,43 @@ He got up trembling.
 
 # Python
 
-The main knowledge source is this conclusion note[@prim].
+The main knowledge source is this conclusion note [@prim].
+
+## Fundamentals
+### Easist Way to Spider
+``` python
+import urllib2
+content = urllib2.urlopen('http://XXXX').read()
+```
+
+### Using a Proxy Server 
+``` python
+import urllib2
+proxy_support = urllib2.ProxyHandler({'http':'http://XX.XX.XX.XX:XXXX'})
+opener = urllib2.build_opener(proxy_support, urllib2.HTTPHandler)
+urllib2.install_opener(opener)
+content = urllib2.urlopen('http://XXXX').read()
+```
+
+### Login
+
+This is a little difficult. You can search the source website [@prim] when you need to do so.
+
+The brief summary are as follow:
+
+- Handling cookies.
+- Handling sheets.
+- Pretending to be a browser.
+- Anti-anti spider.
+- Final weapon.
+
+### Parallel Spider
+### Handling Verifying Numbers.
+### Support Downloading gzip/deflate.
+
+
+
+
 # R 
 
 
