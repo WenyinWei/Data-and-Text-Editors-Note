@@ -1,5 +1,7 @@
 The recommended way to use Markdown is to type the document on Madoko.
+
 Website: https://www.madoko.net/.
+
 Here is its document: http://madoko.org/reference.html.
 
 
