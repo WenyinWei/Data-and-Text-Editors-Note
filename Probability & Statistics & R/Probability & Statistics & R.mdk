@@ -1,4 +1,4 @@
-Title         : My Academic Paper
+Title         : Probability & Statistics & R
 
 Author        : You
 Affiliation   : Research institute
@@ -29,6 +29,20 @@ Some famous websites exhibiting beautiful data are as follow:
 # Probability
 # Statistics
 # R Language
+## Installation
+Basic installation could cite this website [@Install].
+
+Installing packages and detaching them are convenient in Visual Studio.
+```R
+library("whatever")
+library("whatever", lib.loc = "~/Rlib")
+require("whatever")
+detach("package:whatever")
+install.packages("package:whatever")
+```
+library function and require function are not the same on some ways. Library function load the package no matter where it has been loaded, while require function do it if necessary. Their return values are the name of package or error; True or False.
+
+
 ## Visualization
 
 
