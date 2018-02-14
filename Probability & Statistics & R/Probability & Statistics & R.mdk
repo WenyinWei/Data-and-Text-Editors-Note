@@ -38,11 +38,11 @@ library("whatever")
 library("whatever", lib.loc = "~/Rlib")
 require("whatever")
 detach("package:whatever")
-install.packages("package:whatever")
+install.packages("whatever")
 ```
 library function and require function are not the same on some ways. Library function load the package no matter where it has been loaded, while require function do it if necessary. Their return values are the name of package or error; True or False.
 
-
+Devtools is a good tool to help installing packages.[]
 ## Visualization
 
 
