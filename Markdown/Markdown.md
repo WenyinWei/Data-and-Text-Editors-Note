@@ -1,8 +1,8 @@
 The recommended way to use Markdown is to type the document on Madoko.
 
-Website: https://www.madoko.net/.
+Website: [Madoko].
 
-Here is its document: http://madoko.org/reference.html.
+Here is its document: [Reference Manual].
 
 
 Translating a markdown document is done simply as:
@@ -17,7 +17,8 @@ For PDF output, we added an extra verbose flag in order to see any warnings LaTe
 
 
 
-
+[Reference Manual]: http://madoko.org/reference.html
+[Madoko]: https://www.madoko.net/
 
 
 
