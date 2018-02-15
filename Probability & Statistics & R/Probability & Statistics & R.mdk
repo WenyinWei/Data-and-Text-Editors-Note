@@ -20,12 +20,14 @@ package       : url
 
 Some famous websites exhibiting beautiful data are as follow:
 
-- Nathan Yau's Blog "Flowing data" \url{https://flowingdata.com/} and his book _Data Points_
+- Nathan Yau's Blog [Flowing Data] and his book _Data Points_
 - _R for Data Science_.  
 - _The Elements of Statistical Learning_.(free)
 - _An Introduction to Statistical Learning_.(free)
 - _Doing Bayesian Data Analysis_.(free)
 - _Forecasting Principles and Practices_.(free)
+
+[Flowing Data]: https://flowingdata.com/
 # Probability
 # Statistics
 # R Language
@@ -44,8 +46,116 @@ install.packages("whatever")
 library function and require function are not the same on some ways. Library function load the package no matter where it has been loaded, while require function do it if necessary. Their return values are the name of package or error; True or False.
 
 Devtools is a good tool to help installing packages.[]
+## Data Structure[@DataStru]
+### Subjects and Attributes
+
+#### Five Classes of Subjects:
+
+- character,如"hello,world"
+- numeric, 可为整数或小数，如3或3.1415926
+- integer,如1,2,3
+- complex,如1+2i
+- logical,TRUE/FALSE
+
+The basic operations are as follow:
+```
+> x <- 1      # 将1赋值给x
+> class(x)    # 使用class()函数查看x的类型
+[1] "numeric" # x是整数1，但类型是数值
+
+> y <- 3.14
+> class(y)
+[1] "numeric" # y是小数，类型仍是数值
+
+> z <- 2L # 将2赋值给z，通过L限定z的类型为整数
+> class(z)
+[1] "integer" # z的类型是整数
+
+> m <- "hello world" # 赋值字符时，需加""
+> class(m)
+[1] "character" # m的类型为字符
+
+> t <- TRUE
+> class(t)
+[1] "logical" # t的类型为逻辑
+
+> n <- 1+2i
+> class(n)
+[1] "complex" # n的类型为复数
+```
+#### Attributes
+- name
+- dimendions：matrix，array
+- class
+- length
+
+### Vector
+#### How to construct a vector
+
+- vector() Function Builds A Specified Length Null Vector.
+```
+> x1 <- vector(mode = "character", length = 10) # 创建一个长度为10的字符型空向量
+> class(x1)
+[1] "character" # 查看x1的类型，确实为字符型
+> x2 <- vector("numeric",15) # 创建一个长度为15的数值型空向量
+> class(x2)
+[1] "numeric" # 查看x2的类型，确实为数值型
+```
+
+
+- Basic Building Approach
+```
+> x3 <- 1:10 #将1到10的整数赋值给向量x3
+> x3 #打印出x3中的元素
+[1] 1 2 3 4 5 6 7 8 9 10
+> class(x3)
+[1] "integer" #查看x3中元素的类型，为整数型
+```
+
+- c() Function Builds A Specified Vector with Specified Elements. 
+```
+> x5 <- c(1,2,3,4,5) # 创建向量x5，包含1到55个元素
+> x5 # 打印x5的元素
+[1] 1 2 3 4 5
+> class(x5)
+[1] "numeric" # 查看向量x5的类型，为数值型
+```
+The type of elements in a vector must be consistent. R will transform the element types into one when using c() function to build a vector whose elements' types are different.
+```
+> x6 <- c(1,23,TRUE,"hello,world") #创建含有不同类型元素的向量
+> x6
+[1] "1" "23" "TRUE" "hello,world" # 打印出的x6全是字符
+> class(x6)
+[1] "character" #显示x6中的元素全是字符型，说明R自动将数值型和逻辑型元素都转换为字符型。
+```
+
+#### Constraint Transform Subject Type in a Vector
+
+```
+> x7 <- c(1,2,3,5,6,7) #创建数值型向量
+> class(x7)
+[1] "numeric"
+> as.character(x7) # 使用as.as.character()函数将x7中的元素转换成字符型
+[1] "1" "2" "3" "5" "6" "7"
+> class(x7)
+[1] "numeric" # x7中的元素全部被转换成字符型
+```
+Constraint transform functions include: as.logical, as.numeric    .
+
+#### Attributes
+```
+> x8 <- c(2,4,6,8,10) # 创建数值型向量
+> x8
+[1] 2 4 6 8 10
+> names(x8) <- c("a","b","c","d","e") # 给向量x8添加名称
+> x8 # 成功为向量中的每一个元素添加名称
+a b c d e
+2 4 6 8 10
+```
+
+The most common attribute of vectors is type, class() can check the type of a vector. names() function can add names for elements of the vectors.
 ## Visualization
 
-
+[BIB]
 
 ~ End MainPanel
