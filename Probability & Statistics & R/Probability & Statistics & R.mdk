@@ -5,7 +5,7 @@ Affiliation   : Research institute
 Email         : you@bar.com
 
 Bibliography  : example.bib
-package       : url
+package       : url,listings
 [INCLUDE=book]
 [INCLUDE=webtoc]
 [INCLUDE=webanchors]
@@ -29,8 +29,11 @@ Some famous websites exhibiting beautiful data are as follow:
 
 [Flowing Data]: https://flowingdata.com/
 # Probability
+***
 # Statistics
+***
 # R Language
+***
 ## Installation
 
 Basic installation could cite this website [@Install].
@@ -45,16 +48,18 @@ install.packages("whatever")
 ```
 library function and require function are not the same on some ways. Library function load the package no matter where it has been loaded, while require function do it if necessary. Their return values are the name of package or error; True or False.
 
-Devtools is a good tool to help installing packages.[]
-## Data Structure[@DataStru]
+Devtools is a good tool to help installing packages.
+
+## Data Structure
+This part is mainly from [@DataStru].
 ### Subjects and Attributes
 
 #### Five Classes of Subjects:
 
-- character,如"hello,world"
-- numeric, 可为整数或小数，如3或3.1415926
-- integer,如1,2,3
-- complex,如1+2i
+- character,"hello,world"
+- numeric, 3 or 3.1415926
+- integer, 1,2,3
+- complex, 1+2i
 - logical,TRUE/FALSE
 
 The basic operations are as follow:
@@ -85,7 +90,7 @@ The basic operations are as follow:
 ```
 #### Attributes
 - name
-- dimendions：matrix，array
+- dimensions：matrix，array
 - class
 - length
 
@@ -154,6 +159,39 @@ a b c d e
 ```
 
 The most common attribute of vectors is type, class() can check the type of a vector. names() function can add names for elements of the vectors.
+
+
+## R & Latex
+R and Latex could be linked with the function Sweave(), from .rnw file to .tex file and then to .pdf file. The details are complicated, learning the code if necessary.
+
+- [Basic Codes for Sweave]
+- [How to use Latex in RStudio]
+- [How to hide R code in Latex]
+- [Build a Repeatable Research Procedure in Statistics]
+- [Can't Find sweave.sty?(Chinese)]
+- [Can't Find sweave.sty?(Stack Exchange)]
+
+[Basic Codes for Sweave]:http://blog.csdn.net/leeshuheng/article/details/51319912
+[How to use Latex in RStudio]:https://www.zhihu.com/question/28555518?sort=created
+
+[How to hide R code in Latex]:http://blog.csdn.net/u011454283/article/details/50457853
+[Build a Repeatable Research Procedure in Statistics]:https://cosx.org/2010/11/reproducible-research-in-statistics
+[Can't Find sweave.sty?(Chinese)]:http://blog.sciencenet.cn/home.php?mod=space&uid=255662&do=blog&id=974941
+[Can't Find sweave.sty?(Stack Exchange)]:https://tex.stackexchange.com/questions/153193/latex-error-sweave-sty-not-found
+
+
+
+## R & Excel
+### Sheet Data Transformed to Latex
+It is so inconvenient to use Latex code writing the sheet data into a paper, which is not friendly to human and lessens the efficiency. The xtabel package is so great that it uses R to help transform the data into Latex code, whose introduction is this website [Write Latex Sheet with R].
+
+[Write Latex Sheet with R]:http://blog.csdn.net/joshua_hit/article/details/60608787
+
+
+
+
+
+
 ## Visualization
 
 [BIB]
