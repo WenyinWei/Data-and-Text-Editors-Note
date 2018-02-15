@@ -95,6 +95,11 @@ The basic operations are as follow:
 - class
 - length
 
+#### Arithmetic
++, -, * , / ,^ are usual form. %% means the modulo.
+
+ 
+
 ### Vector
 #### How to construct a vector
 
