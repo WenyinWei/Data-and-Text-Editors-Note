@@ -117,8 +117,8 @@ This attribute could be succeeded to next variable such as fruits_number > 0 is 
 
 - mean() function finds the mean magnitude of the elements in a vector.
 
-#### Comparison Operators
-Comparison operators adapt to most of data type, including matrices and vectors.
+#### Relational Operators
+Relational operators adapt to most of data type, including matrices and vectors.
 
 #### Operators
 - & and.
@@ -363,7 +363,24 @@ Function order() is the best function to sort in R.
 [1]   10  100 1000
 
 ```
+## Conditional Statement
+```
+if (condition) {
+  expr1
+} else {
+  expr2
+}
 
+if (condition1) {
+  expr1
+} else if (condition2) {
+  expr2
+} else if (condition3) {
+  expr3
+} else {
+  expr4
+}
+```
 
 
 ## R & Latex
