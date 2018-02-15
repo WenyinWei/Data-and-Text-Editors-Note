@@ -26,7 +26,8 @@ Some famous websites exhibiting beautiful data are as follow:
 - _An Introduction to Statistical Learning_.(free)
 - _Doing Bayesian Data Analysis_.(free)
 - _Forecasting Principles and Practices_.(free)
-
+- A fantastic online website for learning Python and R, [DataCamp].
+[DataCamp]:https://www.datacamp.com/onboarding#
 [Flowing Data]: https://flowingdata.com/
 # Probability
 ***
@@ -192,7 +193,7 @@ It is so inconvenient to use Latex code writing the sheet data into a paper, whi
 
 
 
-## Visualization
+# Data Analysis and Visualization
 
 [BIB]
 
