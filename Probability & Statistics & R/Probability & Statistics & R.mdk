@@ -5,7 +5,7 @@ Affiliation   : Research institute
 Email         : you@bar.com
 
 Bibliography  : example.bib
-package       : url,listings
+package       : url
 [INCLUDE=book]
 [INCLUDE=webtoc]
 [INCLUDE=webanchors]
@@ -50,6 +50,15 @@ install.packages("whatever")
 library function and require function are not the same on some ways. Library function load the package no matter where it has been loaded, while require function do it if necessary. Their return values are the name of package or error; True or False.
 
 Devtools is a good tool to help installing packages.
+## System Operation
+
+```
+# If you want to check out the contents of the workspace, you can type ls() function in the console.
+ls()
+
+# It is a funciton extract an overview of the input.
+summary()
+```
 
 ## Data Structure
 This part is mainly from [@DataStru].
@@ -90,18 +99,33 @@ The basic operations are as follow:
 [1] "complex" # n的类型为复数
 ```
 #### Attributes
-- name
+- name 
+
+This attribute could be succeeded to next variable such as fruits_number > 0 is also a vector with the same names of elements (kinds of fruits), but in boolean type.
+
 - dimensions：matrix，array
 - class
 - length
 
 #### Arithmetic
-+, -, * , / ,^ are usual form. %% means the modulo.
+- +, -, * , / ,^ are usual form. %% means the modulo.
+- <, <=, >=, >, ==, != are comparison operators.
 
- 
+- sum() function adds all elements of a vector together.
+
+- mean() function finds the mean magnitude of the elements in a vector.
+
 
 ### Vector
 #### How to construct a vector
+- Basic Building Approach
+```
+> x3 <- 1:10 #将1到10的整数赋值给向量x3
+> x3 #打印出x3中的元素
+[1] 1 2 3 4 5 6 7 8 9 10
+> class(x3)
+[1] "integer" #查看x3中元素的类型，为整数型
+```
 
 - vector() Function Builds A Specified Length Null Vector.
 ```
@@ -114,14 +138,7 @@ The basic operations are as follow:
 ```
 
 
-- Basic Building Approach
-```
-> x3 <- 1:10 #将1到10的整数赋值给向量x3
-> x3 #打印出x3中的元素
-[1] 1 2 3 4 5 6 7 8 9 10
-> class(x3)
-[1] "integer" #查看x3中元素的类型，为整数型
-```
+
 
 - c() Function Builds A Specified Vector with Specified Elements. 
 ```
@@ -166,6 +183,112 @@ a b c d e
 
 The most common attribute of vectors is type, class() can check the type of a vector. names() function can add names for elements of the vectors.
 
+### Matrix
+#### Build and Name a Matrix
+The following code writes a matrix arranged by three rows, with the sequence of 1:9.
+```
+my_matrix = matrix(1:9, byrow = TRUE, nrow = 3)
+
+# Similar name regulation.
+rownames(my_matrix) <- row_names_vector
+colnames(my_matrix) <- col_names_vector
+
+# Sums, not Sum. 
+rowSums(my_matrix)
+colSums(my_matrix)
+
+# You can add a column or multiple columns to a matrix with the cbind() function.
+big_matrix <- cbind(matrix1, matrix2, vector1 ...)
+big_matrix2<- rbind(matrix1, matrix2, vector2 ...
+```
+#### Selection
+Select part from the matrix. If pick a vector from a matrix, the vector appears as a vector rather than a 1 * n matrix.
+```
+my_matrix[1,2] # selects the element at the first row and second column.
+my_matrix[1:3,2:4] # are similar to Mathematica.
+
+my_matrix[,1] # selects all elements of the first column.
+my_matrix[1,] # selects all elements of the first row.
+```
+#### Arithmetic
+- A * B is the element-element multiplication. 
+- A %*% B is the standard matrix multiplication.
+
+### Factor
+Factors are variables with limited alternatives, such as sex. Categories mean "factor level" in R language.
+Function factor() extract all kinds of possible values from the vector.
+```
+# Sex vector
+sex_vector <- c("Male", "Female", "Female", "Male", "Male")
+
+# Convert sex_vector to a factor
+factor_sex_vector <-factor(sex_vector)
+
+# Print out factor_sex_vector
+factor_sex_vector
+[1] Male Female Female Male Male  
+Levels: Female Male
+```
+#### Order
+There are two kinds of categorical variables: nominal categorical variables and ordinal categorical variables.
+```
+# Animals
+animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
+factor_animals_vector <- factor(animals_vector)
+factor_animals_vector
+[1] High   Low    High   Low    Medium
+Levels: Low < Medium < High
+
+# Temperature
+temperature_vector <- c("High", "Low", "High","Low", "Medium")
+factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+factor_temperature_vector
+[1] High   Low    High   Low    Medium
+Levels: Low < Medium < High
+```
+#### Change
+It is convenient to substitute "levels" in R, just assigning levels() a new list. Notwithstanding, take care of the automatic sequence alphabetically.
+```
+> # Code to build factor_survey_vector
+> survey_vector <- c("M", "F", "F", "M", "M")
+> factor_survey_vector <- factor(survey_vector)
+> factor_survey_vector
+[1] M F F M M
+Levels: F M
+> # Specify the levels of factor_survey_vector
+> levels(factor_survey_vector) <-c("Female","Male")
+> 
+> factor_survey_vector
+[1] Male   Female Female Male   Male  
+Levels: Female Male
+```
+### Data Frame
+#### Rapid Overview
+Both functions head() and tail() give a few observations of the data set/frame to help understanding the whole structure of the data.
+more important, str() is a more frequent used function to extract the structure of data. For a data frame it tells you:
+
+- The total number of observations (e.g. 32 car types)
+- The total number of variables (e.g. 11 car features)
+- A full list of the variables names (e.g. mpg, cyl ... )
+- The data type of each variable (e.g. num)
+- The first observations
+
+#### Create a Data Frame
+It is easy to create s data frame by function data.frame().
+```
+# Definition of vectors
+name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+
+# Create a data frame from the vectors
+planets_df <-data.frame(name,type,diameter,rotation,rings)
+```
+#### Extraction
+It is the same as matrix to extract the elements of frame.
 
 ## R & Latex
 R and Latex could be linked with the function Sweave(), from .rnw file to .tex file and then to .pdf file. The details are complicated, learning the code if necessary.
