@@ -288,7 +288,7 @@ rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
 planets_df <-data.frame(name,type,diameter,rotation,rings)
 ```
 #### Extraction
-It is the same as matrix to extract the elements of frame.
+It is the same as matrix to extract the elements of frame. But you can use names directly to extract elements without names() function (take care of variables are different columns in frame).
 
 ## R & Latex
 R and Latex could be linked with the function Sweave(), from .rnw file to .tex file and then to .pdf file. The details are complicated, learning the code if necessary.
