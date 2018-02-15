@@ -25,7 +25,7 @@ Some famous websites exhibiting beautiful data are as follow:
 - _The Elements of Statistical Learning_.(free)
 - _An Introduction to Statistical Learning_.(free)
 - _Doing Bayesian Data Analysis_.(free)
-- _Forecasting Principles and Practics_.(free)
+- _Forecasting Principles and Practices_.(free)
 # Probability
 # Statistics
 # R Language
@@ -33,7 +33,7 @@ Some famous websites exhibiting beautiful data are as follow:
 Basic installation could cite this website [@Install].
 
 Installing packages and detaching them are convenient in Visual Studio.
-```R
+```
 library("whatever")
 library("whatever", lib.loc = "~/Rlib")
 require("whatever")
