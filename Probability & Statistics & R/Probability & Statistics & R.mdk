@@ -60,6 +60,10 @@ ls()
 
 # It is a funciton extract an overview of the input.
 summary()
+
+script.dir <- dirname(sys.frame(1)$ofile)
+setwd(script.dir)
+# set the current work directory where the file is.
 ```
 
 ## Data Structure
