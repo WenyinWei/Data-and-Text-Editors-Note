@@ -409,9 +409,15 @@ It is so inconvenient to use Latex code writing the sheet data into a paper, whi
 
 [Write Latex Sheet with R]:http://blog.csdn.net/joshua_hit/article/details/60608787
 
+```R
+# You can try both libraries when one is in problem. 
+library(foreign)  
+mydata = read.spss("**.sav") 
 
-
-
+library(haven)
+dataset = read_sav(NULL)
+View(dataset)
+```
 
 
 # Data Analysis and Visualization
