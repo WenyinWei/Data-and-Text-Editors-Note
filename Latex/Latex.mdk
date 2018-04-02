@@ -24,7 +24,7 @@ Bibliography  : example.bib
 
 File `ODE.out' has changed (rerunfilecheck)                Rerun to get outlines right (rerunfilecheck)                or use package `bookmark'. 
 
-这样的错误
+这样的错误信息.如果要使用黑体,应该用\heiti
 
 
 Let's start with a sub section.
